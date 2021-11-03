@@ -1,16 +1,16 @@
-// @ts-ignore
+
 
 import { MenuItem } from './menu.model';
 
 export const MENU: MenuItem[] = [
-  /* {
+   {
      label: 'Main',
      isTitle: true
    },
    {
      label: 'Dashboard',
      icon: 'home',
-     link: '/dashboard'
+     link: ''
    },
    {
      label: 'Web Apps',
@@ -303,25 +303,23 @@ export const MENU: MenuItem[] = [
        }
      ]
    },
-
-   */
   {
     label: 'Authentication',
     icon: 'unlock',
     subItems: [
       {
         label: 'Login',
-        link: '/auth/login',
+        link: '',
       },
       {
         label: 'Register',
-        link: '/auth/register',
+        link: '//register',
       },
     ]
   }
-  ]
+  ,
 
- /* {
+  {
     label: 'Error',
     icon: 'cloud-off',
     subItems: [
@@ -334,7 +332,6 @@ export const MENU: MenuItem[] = [
         link: '/error/500',
       },
     ]
-  },
-];
 
-  */
+  },
+  ]

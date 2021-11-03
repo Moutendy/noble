@@ -34,6 +34,7 @@ const routes: Routes = [
       },
       {
         path: 'advanced-form-elements',
+        // tslint:disable-next-line:max-line-length
         loadChildren: () => import('./views/pages/advanced-form-elements/advanced-form-elements.module').then(m => m.AdvancedFormElementsModule)
       },
       {
@@ -52,17 +53,17 @@ const routes: Routes = [
         path: 'general',
         loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
       },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, 
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },
-  { 
+  {
     path: 'error',
     component: ErrorPageComponent,
     data: {
-      'type': 404,
-      'title': 'Page Not Found',
-      'desc': 'Oopps!! The page you were looking for doesn\'t exist.'
+      type: 404,
+      title: 'Page Not Found',
+      desc: 'Oopps!! The page you were looking for doesn\'t exist.'
     }
   },
   {

@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
     e.preventDefault();
     localStorage.setItem('isLoggedin', 'true');
     if (localStorage.getItem('isLoggedin')) {
-      this.router.navigate(['/']);
+      this.router.navigate(['auth']);
     }
   }
 

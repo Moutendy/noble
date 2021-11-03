@@ -48,7 +48,8 @@ export class WizardComponent implements OnInit {
   /**
    * Wizard finish function
    */
-  finishFunction() {
+  finishFunction()
+  {
     alert('Successfully Completed');
   }
 
