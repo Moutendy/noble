@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    @Inject(DOCUMENT) private document: Document, 
+    @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
     private router: Router
   ) { }
@@ -34,7 +34,7 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('isLoggedin');
 
     if (!localStorage.getItem('isLoggedin')) {
-      this.router.navigate(['/auth/login']);
+      this.router.navigate(['login']);
     }
   }
 

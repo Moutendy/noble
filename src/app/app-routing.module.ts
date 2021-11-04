@@ -6,9 +6,9 @@ import { ErrorPageComponent } from './views/pages/error-page/error-page.componen
 
 
 const routes: Routes = [
-  { path:'auth', loadChildren: () => import('./views/pages/auth/auth.module').then(m => m.AuthModule) },
+  { path:'', loadChildren: () => import('./views/pages/auth/auth.module').then(m => m.AuthModule)},
   {
-    path: '',
+    path: 'acceuil',
     component: BaseComponent,
     canActivate: [AuthGuard],
     children: [
@@ -46,14 +46,10 @@ const routes: Routes = [
         loadChildren: () => import('./views/pages/tables/tables.module').then(m => m.TablesModule)
       },
       {
-        path: 'icons',
-        loadChildren: () => import('./views/pages/icons/icons.module').then(m => m.IconsModule)
-      },
-      {
         path: 'general',
         loadChildren: () => import('./views/pages/general/general.module').then(m => m.GeneralModule)
       },
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+       { path: 'acceuil', redirectTo: 'dashboard', pathMatch: 'full' },
       // { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ]
   },

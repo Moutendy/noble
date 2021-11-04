@@ -4,15 +4,15 @@ import { MenuItem } from './menu.model';
 
 export const MENU: MenuItem[] = [
    {
-     label: 'Main',
+     label: 'Bienvenu',
      isTitle: true
    },
    {
-     label: 'Dashboard',
+     label: 'Accueil',
      icon: 'home',
-     link: ''
+     link: 'general/blank-page',
    },
-   {
+  /* {
      label: 'Web Apps',
      isTitle: true
    },
@@ -34,6 +34,8 @@ export const MENU: MenuItem[] = [
        },
      ]
    },
+
+
    {
      label: 'Chat',
      icon: 'message-square',
@@ -48,7 +50,9 @@ export const MENU: MenuItem[] = [
        text: 'New',
      }
    },
-   {
+
+    */
+  /* {
      label: 'Components',
      isTitle: true
    },
@@ -172,11 +176,27 @@ export const MENU: MenuItem[] = [
        },
      ]
    },
+
+   */
+  {
+    label: 'Ajouter',
+    icon: 'arrow-down-circle',
+    subItems: [
+      {
+        label: 'Article',
+        link: 'form-elements/wizard'
+      },
+      {
+        label: 'Role',
+        link: 'form-elements/editors'
+      }
+    ]
+  },
    {
-     label: 'Forms',
-     icon: 'file-text',
+     label: 'Consulter',
+     icon: 'cloud',
      subItems: [
-       {
+      /* {
          label: 'Basic elements',
          link: '/form-elements/basic-elements'
        },
@@ -213,13 +233,19 @@ export const MENU: MenuItem[] = [
          label: 'Editors',
          link: '/form-elements/editors'
        },
+
+       */
        {
-         label: 'Wizard',
-         link: '/form-elements/wizard'
+         label: 'Article',
+         link: 'tables/data-table',
+       },
+       {
+         label: 'Role',
+         link: 'tables/data-table',
        },
      ]
    },
-   {
+  /* {
      label: 'Charts & graphs',
      icon: 'pie-chart',
      subItems: [
@@ -233,25 +259,28 @@ export const MENU: MenuItem[] = [
        },
      ]
    },
-   {
-     label: 'Tables',
-     icon: 'layout',
-     subItems: [
-       {
+
+   */
+
+      /* {
          label: 'Basic tables',
          link: '/tables/basic-table',
        },
-       {
-         label: 'Data table',
-         link: '/tables/data-table',
-       },
+
+       */
+
+       /*
        {
          label: 'Ngx-datatable',
          link: '/tables/ngx-datatable'
        }
-     ]
-   },
-   {
+
+
+        */
+
+
+
+ /*  {
      label: 'Icons',
      icon: 'smile',
      subItems: [
@@ -268,7 +297,9 @@ export const MENU: MenuItem[] = [
          link: '/icons/mdi-icons',
        }
      ]
-   },
+   }
+   ,
+  */
    {
      label: 'Pages',
      isTitle: true
@@ -279,9 +310,9 @@ export const MENU: MenuItem[] = [
      subItems: [
        {
          label: 'Blank page',
-         link: '/general/blank-page',
+         link: 'general/blank-page',
        },
-       {
+      /* {
          label: 'Faq',
          link: '/general/faq',
        },
@@ -301,6 +332,8 @@ export const MENU: MenuItem[] = [
          label: 'Timeline',
          link: '/general/timeline',
        }
+
+       */
      ]
    },
   {
@@ -313,7 +346,7 @@ export const MENU: MenuItem[] = [
       },
       {
         label: 'Register',
-        link: '//register',
+        link: '/register',
       },
     ]
   }
@@ -325,11 +358,11 @@ export const MENU: MenuItem[] = [
     subItems: [
       {
         label: '404',
-        link: '/error/404',
+        link: 'error/404',
       },
       {
         label: '500',
-        link: '/error/500',
+        link: 'error/500',
       },
     ]
 

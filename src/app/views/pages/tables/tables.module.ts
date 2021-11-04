@@ -16,7 +16,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'basic-table',
+        redirectTo: 'data-table',
         pathMatch: 'full'
       },
       {

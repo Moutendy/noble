@@ -24,7 +24,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'basic-elements',
+        redirectTo: 'wizard',
         pathMatch: 'full'
       },
       {
