@@ -183,13 +183,21 @@ export const MENU: MenuItem[] = [
     icon: 'arrow-down-circle',
     subItems: [
       {
-        label: 'Article',
+        label: 'Nature taxe habitation',
         link: 'form-elements/wizard'
       },
       {
-        label: 'Role',
-        link: 'form-elements/editors'
-      }
+        label: 'Pvc Evenement',
+        link: 'form-elements/pvcevenement'
+      },
+      {
+        label: 'Pvc Decission',
+        link: 'form-elements/pvcdecission'
+      },
+      {
+        label: 'Pvc Object Requete',
+        link: 'form-elements/pvcobjectrequete'
+      },
     ]
   },
    {
@@ -236,11 +244,19 @@ export const MENU: MenuItem[] = [
 
        */
        {
-         label: 'Article',
+         label: 'Nature Taxe Habitation',
          link: 'tables/data-table',
        },
        {
-         label: 'Role',
+         label: 'Pvc Evenement',
+         link: 'tables/data-table',
+       },
+       {
+         label: 'Pvc Decission',
+         link: 'tables/data-table',
+       },
+       {
+         label: 'Pvc Object Requete',
          link: 'tables/data-table',
        },
      ]
@@ -300,42 +316,45 @@ export const MENU: MenuItem[] = [
    }
    ,
   */
-   {
-     label: 'Pages',
-     isTitle: true
-   },
-   {
-     label: 'Special pages',
-     icon: 'book',
-     subItems: [
-       {
-         label: 'Blank page',
-         link: 'general/blank-page',
-       },
-      /* {
-         label: 'Faq',
-         link: '/general/faq',
-       },
-       {
-         label: 'Invoice',
-         link: '/general/invoice',
-       },
-       {
-         label: 'Profile',
-         link: '/general/profile',
-       },
-       {
-         label: 'Pricing',
-         link: '/general/pricing',
-       },
-       {
-         label: 'Timeline',
-         link: '/general/timeline',
-       }
+  /*{
+   label: 'Pages',
+   isTitle: true
+ },
+ {
+   label: 'Special pages',
+   icon: 'book',
+   subItems: [
+     {
+       label: 'Blank page',
+       link: 'general/blank-page',
+     },
+    {
+       label: 'Faq',
+       link: '/general/faq',
+     },
+     {
+       label: 'Invoice',
+       link: '/general/invoice',
+     },
+     {
+       label: 'Profile',
+       link: '/general/profile',
+     },
+     {
+       label: 'Pricing',
+       link: '/general/pricing',
+     },
+     {
+       label: 'Timeline',
+       link: '/general/timeline',
+     }
 
-       */
+
      ]
    },
+
+   */
+  /*
   {
     label: 'Authentication',
     icon: 'unlock',
@@ -367,4 +386,6 @@ export const MENU: MenuItem[] = [
     ]
 
   },
+
+   */
   ]

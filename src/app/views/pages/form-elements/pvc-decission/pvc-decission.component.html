@@ -1,0 +1,61 @@
+<nav class="page-breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink=".">Ajouter pvc Decission</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Decission</li>
+  </ol>
+</nav>
+<div class="row">
+  <div class="col-md-9 grid-margin mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Ajouter pvc Decission</h6>
+
+        <aw-wizard #wizardForm>
+
+          <aw-wizard-step stepTitle="step 1">
+            <form (ngSubmit)="form1Submit()" [formGroup]="validationForm1">
+              <div class="col-md-9 pl-md-0 mx-auto">
+                <div class="form-group row">
+                  <label for="date_decision" class="col-form-label">Date Decision</label>
+                  <div class="col-md-12">
+                    <input type="date" class="form-control" id="date_decision" formControlName="date_decision"
+                           [ngClass]="{'is-invalid': isForm1Submitted && form1.date_decision.errors}" placeholder="Annee budgetaire">
+                    <div *ngIf="isForm1Submitted && form1.date_decision.errors?.required" class="invalid-feedback">
+                      Required
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="numero_decision" class="col-form-label">Numero Decision</label>
+                  <div class="col-md-12">
+                    <input type="number" class="form-control" id="numero_decision" formControlName="numero_decision"
+                           [ngClass]="{'is-invalid': isForm1Submitted && form1.numero_decision.errors}" placeholder="date d'effet">
+                    <div *ngIf="isForm1Submitted && form1.numero_decision.errors?.required" class="invalid-feedback">
+                      Required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center mt-2">
+                  <button class="btn btn-primary" type="submit">Continue</button>
+                </div>
+              </div>
+            </form>
+          </aw-wizard-step>
+          <aw-wizard-step stepTitle="finish">
+            <div class="text-center">
+              <i data-feather="check-circle" appFeatherIcon class="text-success mt-4 mb-2 icon-xxl"></i>
+              <h3 class="text-muted mb-3">Thank you !</h3>
+              <p class="w-75 mx-auto mb-4 text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut nulla nunc. Maecenas arcu sem, hendrerit a tempor quis, sagittis accumsan tellus. In hac habitasse platea dictumst</p>
+            </div>
+            <div class="d-flex justify-content-center mt-2">
+              <button class="btn btn-light mr-2" type="button" awPreviousStep>Back</button>
+              <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
+            </div>
+          </aw-wizard-step>
+
+        </aw-wizard>
+      </div>
+    </div>
+  </div>
+</div>

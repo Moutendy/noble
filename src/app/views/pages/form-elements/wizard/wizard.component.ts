@@ -13,7 +13,9 @@ export class WizardComponent implements OnInit {
   validationForm1: FormGroup;
   validationForm2: FormGroup;
 
+  // tslint:disable-next-line:ban-types
   isForm1Submitted: Boolean;
+  // tslint:disable-next-line:ban-types
   isForm2Submitted: Boolean;
 
   @ViewChild('wizardForm') wizardForm: BaseWizardComponent;
@@ -26,16 +28,17 @@ export class WizardComponent implements OnInit {
      * form1 value validation
      */
     this.validationForm1 = this.formBuilder.group({
-      firstName : ['', Validators.required],
-      lastName : ['', Validators.required],
-      userName : ['', Validators.required]
+      libelle : ['', Validators.required],
+      date_effet : ['', Validators.required],
+      date_fin : ['', Validators.required],
+      validation : ['', Validators.required]
     });
 
     /**
      * formw value validation
      */
     this.validationForm2 = this.formBuilder.group({
-      email : ['', [Validators.required, Validators.email]],
+      email : ['', [Validators.required]],
       mobileNumber : ['', Validators.required],
       password : ['', Validators.required]
     });
@@ -71,7 +74,9 @@ export class WizardComponent implements OnInit {
    * Go to next step while form value is valid
    */
   form1Submit() {
-    if(this.validationForm1.valid) {
+    console.log( this.validationForm1)
+    if(this.validationForm1.valid)
+    {
       this.wizardForm.goToNextStep();
     }
     this.isForm1Submitted = true;
