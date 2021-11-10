@@ -184,7 +184,7 @@ export const MENU: MenuItem[] = [
     subItems: [
       {
         label: 'Nature taxe habitation',
-        link: 'form-elements/wizard'
+        link: 'form-elements/taxe-habitation'
       },
       {
         label: 'Pvc Evenement',
@@ -192,7 +192,7 @@ export const MENU: MenuItem[] = [
       },
       {
         label: 'Pvc Decission',
-        link: 'form-elements/pvcdecission'
+        link: 'form-elements/pvcdecision'
       },
       {
         label: 'Pvc Object Requete',
@@ -204,188 +204,24 @@ export const MENU: MenuItem[] = [
      label: 'Consulter',
      icon: 'cloud',
      subItems: [
-      /* {
-         label: 'Basic elements',
-         link: '/form-elements/basic-elements'
-       },
-       {
-         label: 'Advanced elements',
-         subItems: [
-           {
-             label: 'Form validation',
-             link: '/advanced-form-elements/form-validation'
-           },
-           {
-             label: 'Input mask',
-             link: '/advanced-form-elements/input-mask'
-           },
-           {
-             label: 'Ng-select',
-             link: '/advanced-form-elements/ng-select'
-           },
-           {
-             label: 'Ngx-chips',
-             link: '/advanced-form-elements/ngx-chips'
-           },
-           {
-             label: 'Ngx-color-picker',
-             link: '/advanced-form-elements/ngx-color-picker'
-           },
-           {
-             label: 'Ngx-dropzone',
-             link: '/advanced-form-elements/ngx-dropzone-wrapper'
-           },
-         ]
-       },
-       {
-         label: 'Editors',
-         link: '/form-elements/editors'
-       },
 
-       */
        {
          label: 'Nature Taxe Habitation',
-         link: 'tables/data-table',
+         link: 'tables/taxe_naturel_habitaion',
        },
        {
          label: 'Pvc Evenement',
-         link: 'tables/data-table',
+         link: 'tables/pvcevenement',
        },
        {
          label: 'Pvc Decission',
-         link: 'tables/data-table',
+         link: 'tables/pvcdecision',
        },
        {
          label: 'Pvc Object Requete',
-         link: 'tables/data-table',
-       },
-     ]
-   },
-  /* {
-     label: 'Charts & graphs',
-     icon: 'pie-chart',
-     subItems: [
-       {
-         label: 'ApexCharts',
-         link: '/charts-graphs/apexcharts',
-       },
-       {
-         label: 'ChartJs',
-         link: '/charts-graphs/chartjs',
+         link: 'tables/pvcobjectrequete',
        },
      ]
    },
 
-   */
-
-      /* {
-         label: 'Basic tables',
-         link: '/tables/basic-table',
-       },
-
-       */
-
-       /*
-       {
-         label: 'Ngx-datatable',
-         link: '/tables/ngx-datatable'
-       }
-
-
-        */
-
-
-
- /*  {
-     label: 'Icons',
-     icon: 'smile',
-     subItems: [
-       {
-         label: 'Feather icons',
-         link: '/icons/feather-icons',
-       },
-       {
-         label: 'Flag icons',
-         link: '/icons/flag-icons',
-       },
-       {
-         label: 'Mdi icons',
-         link: '/icons/mdi-icons',
-       }
-     ]
-   }
-   ,
-  */
-  /*{
-   label: 'Pages',
-   isTitle: true
- },
- {
-   label: 'Special pages',
-   icon: 'book',
-   subItems: [
-     {
-       label: 'Blank page',
-       link: 'general/blank-page',
-     },
-    {
-       label: 'Faq',
-       link: '/general/faq',
-     },
-     {
-       label: 'Invoice',
-       link: '/general/invoice',
-     },
-     {
-       label: 'Profile',
-       link: '/general/profile',
-     },
-     {
-       label: 'Pricing',
-       link: '/general/pricing',
-     },
-     {
-       label: 'Timeline',
-       link: '/general/timeline',
-     }
-
-
-     ]
-   },
-
-   */
-  /*
-  {
-    label: 'Authentication',
-    icon: 'unlock',
-    subItems: [
-      {
-        label: 'Login',
-        link: '',
-      },
-      {
-        label: 'Register',
-        link: '/register',
-      },
-    ]
-  }
-  ,
-
-  {
-    label: 'Error',
-    icon: 'cloud-off',
-    subItems: [
-      {
-        label: '404',
-        link: 'error/404',
-      },
-      {
-        label: '500',
-        link: 'error/500',
-      },
-    ]
-
-  },
-
-   */
   ]

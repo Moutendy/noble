@@ -2,6 +2,11 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { WizardComponent as BaseWizardComponent } from 'angular-archwizard';
+import {TaxehabitationserviceService} from './taxe-habitation/taxehabitationservice.service';
+import {Taxehabitation} from './taxehabitation';
+import {take} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-wizard',
@@ -20,7 +25,7 @@ export class WizardComponent implements OnInit {
 
   @ViewChild('wizardForm') wizardForm: BaseWizardComponent;
 
-  constructor(public formBuilder: FormBuilder) { }
+  constructor(public formBuilder: FormBuilder,private taxehabiationanturel:TaxehabitationserviceService,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -28,10 +33,11 @@ export class WizardComponent implements OnInit {
      * form1 value validation
      */
     this.validationForm1 = this.formBuilder.group({
+      code : ['', Validators.required],
       libelle : ['', Validators.required],
-      date_effet : ['', Validators.required],
-      date_fin : ['', Validators.required],
-      validation : ['', Validators.required]
+      dateEffet : ['', Validators.required],
+      dateFin : ['', Validators.required],
+      validite : ['', Validators.required]
     });
 
     /**
@@ -53,7 +59,7 @@ export class WizardComponent implements OnInit {
    */
   finishFunction()
   {
-    alert('Successfully Completed');
+   this.router.navigateByUrl('/acceuil/tables/taxe_naturel_habitaion')
   }
 
   /**
@@ -74,10 +80,12 @@ export class WizardComponent implements OnInit {
    * Go to next step while form value is valid
    */
   form1Submit() {
-    console.log( this.validationForm1)
+
     if(this.validationForm1.valid)
     {
       this.wizardForm.goToNextStep();
+      console.log( this.validationForm1.value);
+      this.taxehabiationanturel.ajoutertaxehabitationnaturel(this.validationForm1.value).pipe(take(1)).subscribe()
     }
     this.isForm1Submitted = true;
   }

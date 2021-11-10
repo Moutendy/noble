@@ -36,11 +36,14 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [IconsComponent, FeatherComponent, FlagComponent, MdiComponent],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    FeahterIconModule
-  ]
+    declarations: [IconsComponent, FeatherComponent, FlagComponent, MdiComponent],
+    exports: [
+        IconsComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        FeahterIconModule
+    ]
 })
 export class IconsModule { }

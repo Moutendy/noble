@@ -18,9 +18,9 @@
                 <div class="form-group row">
                   <label for="date_evenement" class="col-form-label">Date Evenement</label>
                   <div class="col-md-12">
-                    <input type="date" class="form-control" id="date_evenement" formControlName="date"
-                           [ngClass]="{'is-invalid': isForm1Submitted && form1.date.errors}" placeholder="date evenement">
-                    <div *ngIf="isForm1Submitted && form1.date.errors?.required" class="invalid-feedback">
+                    <input type="date" class="form-control" id="date_evenement" formControlName="dateEvenement"
+                           [ngClass]="{'is-invalid': isForm1Submitted && form1.dateEvenement.errors}" placeholder="date evenement">
+                    <div *ngIf="isForm1Submitted && form1.dateEvenement.errors?.required" class="invalid-feedback">
                       Required
                     </div>
                   </div>
@@ -28,9 +28,9 @@
                 <div class="form-group row">
                   <label for="type_evenement" class="col-form-label">Type Evenement</label>
                   <div class="col-md-12">
-                    <input type="text" class="form-control" id="type_evenement" formControlName="typeevenement"
-                           [ngClass]="{'is-invalid': isForm1Submitted && form1.typeevenement.errors}" placeholder="type d'evenement">
-                    <div *ngIf="isForm1Submitted && form1.typeevenement.errors?.required" class="invalid-feedback">
+                    <input type="text" class="form-control" id="type_evenement" formControlName="refTypeEvenement"
+                           [ngClass]="{'is-invalid': isForm1Submitted && form1.refTypeEvenement.errors}" placeholder="type d'evenement">
+                    <div *ngIf="isForm1Submitted && form1.refTypeEvenement.errors?.required" class="invalid-feedback">
                       Required
                     </div>
                   </div>
@@ -38,9 +38,9 @@
                 <div class="form-group row">
                   <label for="refrequete" class="col-form-label">Ref Requete</label>
                   <div class="col-md-12">
-                    <input type="number" class="form-control" id="refrequete" formControlName="refrequete"
-                           [ngClass]="{'is-invalid': isForm1Submitted && form1.refrequete.errors}" placeholder="ref Requete">
-                    <div *ngIf="isForm1Submitted && form1.refrequete.errors?.required" class="invalid-feedback">
+                    <input type="number" class="form-control" id="refrequete" formControlName="refRequete"
+                           [ngClass]="{'is-invalid': isForm1Submitted && form1.refRequete.errors}" placeholder="ref Requete">
+                    <div *ngIf="isForm1Submitted && form1.refRequete.errors?.required" class="invalid-feedback">
                       Required
                     </div>
                   </div>

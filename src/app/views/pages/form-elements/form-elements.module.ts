@@ -15,11 +15,12 @@ import { ArchwizardModule } from 'angular-archwizard';
 import { FormElementsComponent } from './form-elements.component';
 import { BasicElementsComponent } from './basic-elements/basic-elements.component';
 import { EditorsComponent } from './editors/editors.component';
-import { WizardComponent } from './wizard/wizard.component';
+import { WizardComponent } from './taxe-habitation/wizard.component';
 import {NgSelectModule} from '@ng-select/ng-select';
 import { PvcDecissionComponent } from './pvc-decission/pvc-decission.component';
 import { PvcObjectRequetComponent } from './pvc-object-requet/pvc-object-requet.component';
 import { PvcEvenementComponent } from './pvc-evenement/pvc-evenement.component';
+import {PvcdecisionComponent} from '../tables/pvcdecision/pvcdecision.component';
 
 const routes: Routes = [
   {
@@ -40,11 +41,11 @@ const routes: Routes = [
         component: EditorsComponent
       },
       {
-        path: 'wizard',
+        path: 'taxe-habitation',
         component: WizardComponent
       },
       {
-        path: 'pvcdecission',
+        path: 'pvcdecision',
         component: PvcDecissionComponent
       }
       ,

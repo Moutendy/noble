@@ -1,6 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {WizardComponent as BaseWizardComponent} from 'angular-archwizard/lib/components/wizard.component';
+import {PvcevenementService} from '../../tables/pvcevenementservice/pvcevenement.service';
+import {Pvcevenement} from '../../tables/pvcevenement/pvcevenement';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-pvc-evenement',
@@ -9,7 +12,8 @@ import {WizardComponent as BaseWizardComponent} from 'angular-archwizard/lib/com
 })
 export class PvcEvenementComponent implements OnInit {
 
-  constructor(public formBuilder: FormBuilder) { }
+  private evenement:Pvcevenement;
+  constructor(public formBuilder: FormBuilder,private serviceevement:PvcevenementService,private router:Router) { }
 
   private static isForm1Submitted: boolean;
   private static isForm2Submitted: boolean;
@@ -18,9 +22,9 @@ export class PvcEvenementComponent implements OnInit {
   private static validationForm2: FormGroup;
   validationForm1=this.formBuilder.group(
     {
-      date : ['', Validators.required],
-      typeevenement : ['', Validators.required],
-      refrequete : ['', Validators.required]
+      dateEvenement : ['', Validators.required],
+      refTypeEvenement : ['', Validators.required],
+      refRequete : ['', Validators.required]
  });
 
   validationForm2 = this.formBuilder.group({
@@ -33,6 +37,7 @@ export class PvcEvenementComponent implements OnInit {
 
   get form1() {
     return this.validationForm1.controls;
+
   }
 
 
@@ -43,13 +48,16 @@ export class PvcEvenementComponent implements OnInit {
 
   finishFunction() : void
   {
-
+   this.router.navigateByUrl('acceuil/tables/pvcevenement')
   }
 
   form1Submit() {
-    console.log(this.validationForm1)
+
     if (this.validationForm1.valid) {
       this.wizardForm.goToNextStep();
+      this.evenement=this.validationForm1.value;
+      console.log(this.evenement);
+      this.serviceevement.ajouterEvenement(this.validationForm1.value).subscribe();
     }
     this.isForm1Submitted = true;
   }

@@ -1,7 +1,7 @@
 <nav class="page-breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a routerLink=".">Ajouter Un article</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Article</li>
+    <li class="breadcrumb-item"><a routerLink=".">Ajouter NATURE TAXE HABITATION</a></li>
+    <li class="breadcrumb-item active" aria-current="page">NATURE TAXE HABITATION</li>
   </ol>
 </nav>
 <!--
@@ -22,8 +22,8 @@
       <div class="card-body">
         <h6 class="card-title">Ajouter Nature taxe habitation</h6>
         <!--
-                <aw-wizard>
-                  <aw-wizard-step stepTitle="step 1">
+                <aw-taxe-habitation>
+                  <aw-taxe-habitation-step stepTitle="step 1">
                     <div class="form-group row">
                       <label for="firstName1" class="col-sm-3 col-form-label">First name</label>
                       <div class="col-sm-9">
@@ -45,8 +45,8 @@
                     <div class="d-flex justify-content-center mt-2">
                       <button class="btn btn-primary" type="button" awNextStep>Continue</button>
                     </div>
-                  </aw-wizard-step>
-                  <aw-wizard-step stepTitle="step 2">
+                  </aw-taxe-habitation-step>
+                  <aw-taxe-habitation-step stepTitle="step 2">
                     <div class="form-group row">
                       <label for="email1" class="col-sm-3 col-form-label">Email</label>
                       <div class="col-sm-9">
@@ -69,11 +69,11 @@
                       <button class="btn btn-light mr-2" type="button" awPreviousStep>Back</button>
                       <button class="btn btn-primary" type="button" awNextStep>Continue</button>
                     </div>
-                  </aw-wizard-step>
+                  </aw-taxe-habitation-step>
 
 
 
-                  <aw-wizard-step stepTitle="finish">
+                  <aw-taxe-habitation-step stepTitle="finish">
                     <div class="text-center">
                       <i data-feather="check-circle" appFeatherIcon class="text-success mt-4 mb-2 icon-xxl"></i>
                       <h3 class="text-muted mb-3">Thank you !</h3>
@@ -83,8 +83,8 @@
                       <button class="btn btn-light mr-2" type="button" awPreviousStep>Back</button>
                       <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
                     </div>
-                  </aw-wizard-step>
-                </aw-wizard>
+                  </aw-taxe-habitation-step>
+                </aw-taxe-habitation>
 
               </div>
             </div>
@@ -100,6 +100,16 @@
           <aw-wizard-step stepTitle="step 1">
             <form (ngSubmit)="form1Submit()" [formGroup]="validationForm1">
              <div class="col-md-12 pl-md-0 mx-auto">
+               <div class="form-group row">
+                 <label for="code" class="col-form-label">Code</label>
+                 <div class="col-md-12">
+                   <input type="text" class="form-control" id="code" formControlName="code"
+                          [ngClass]="{'is-invalid': isForm1Submitted && form1.code.errors}" placeholder="code">
+                   <div *ngIf="isForm1Submitted && form1.code.errors?.required" class="invalid-feedback">
+                     Required
+                   </div>
+                 </div>
+               </div>
               <div class="form-group row">
                 <label for="annee_budgetaire" class="col-form-label">libelle</label>
                 <div class="col-md-12">
@@ -113,9 +123,9 @@
               <div class="form-group row">
                 <label for="date_effet" class="col-form-label">Date effet</label>
                 <div class="col-md-12">
-                  <input type="date" class="form-control" id="date_effet" formControlName="date_effet"
-                         [ngClass]="{'is-invalid': isForm1Submitted && form1.date_effet.errors}" placeholder="date d'effet">
-                  <div *ngIf="isForm1Submitted && form1.date_effet.errors?.required" class="invalid-feedback">
+                  <input type="date" class="form-control" id="date_effet" formControlName="dateEffet"
+                         [ngClass]="{'is-invalid': isForm1Submitted && form1.dateEffet.errors}" placeholder="date d'effet">
+                  <div *ngIf="isForm1Submitted && form1.dateEffet.errors?.required" class="invalid-feedback">
                     Required
                   </div>
                 </div>
@@ -124,9 +134,9 @@
               <div class="form-group row">
                 <label for="date_fin" class="col-form-label">Date de fin</label>
                 <div class="col-md-12">
-                  <input type="date" class="form-control" id="date_fin" formControlName="date_fin"
-                         [ngClass]="{'is-invalid': isForm1Submitted && form1.date_fin.errors}" placeholder="Date de fin">
-                  <div *ngIf="isForm1Submitted && form1.date_fin.errors?.required" class="invalid-feedback">
+                  <input type="date" class="form-control" id="date_fin" formControlName="dateFin"
+                         [ngClass]="{'is-invalid': isForm1Submitted && form1.dateFin.errors}" placeholder="Date de fin">
+                  <div *ngIf="isForm1Submitted && form1.dateFin.errors?.required" class="invalid-feedback">
                     Required
                   </div>
                 </div>
@@ -135,9 +145,9 @@
                <div class="form-group row">
                  <label for="validation" class="col-form-label">Validation</label>
                  <div class="col-md-12">
-                   <input type="texte" class="form-control" id="validation" formControlName="validation"
-                          [ngClass]="{'is-invalid': isForm1Submitted && form1.validation.errors}" placeholder="validation">
-                   <div *ngIf="isForm1Submitted && form1.validation.errors?.required" class="invalid-feedback">
+                   <input type="texte" class="form-control" id="validation" formControlName="validite"
+                          [ngClass]="{'is-invalid': isForm1Submitted && form1.validite.errors}" placeholder="validite">
+                   <div *ngIf="isForm1Submitted && form1.validite.errors?.required" class="invalid-feedback">
                      Required
                    </div>
                  </div>
@@ -146,6 +156,7 @@
                 <button class="btn btn-primary" type="submit">Continue</button>
               </div>
              </div>
+
             </form>
           </aw-wizard-step>
           <aw-wizard-step stepTitle="finish">
