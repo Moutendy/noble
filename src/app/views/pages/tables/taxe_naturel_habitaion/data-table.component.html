@@ -1,0 +1,68 @@
+<nav class="page-breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink=".">Ajouter Taxe d'habitation naturel</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Taxe d'habitation naturel</li>
+  </ol>
+</nav>
+
+<div class="row">
+  <div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Taxe d'habitation naturel</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Taxe d'habitation naturel</h6>
+        <div class="table-responsive">
+          <table id="dataTableExample" class="table">
+            <thead>
+              <tr>
+                <th>Code</th>
+                <th>Libelle</th>
+                <th>Date Effet</th>
+                <th>Date de Fin</th>
+                <th>Validite</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let taxe of taxehabitationdto | paginate :{id: 'liste',
+                                                                        itemsPerPage: 2,
+                                                                        currentPage: p,
+                                                                        totalItems: total}">
+                <td>{{taxe.code}}</td>
+                <td>{{taxe.libelle}}</td>
+                <td>{{taxe.dateEffet|date:'yyyy-mm-dd'}}</td>
+                <td>{{taxe.dateFin|date:'yyyy-mm-dd'}}</td>
+                <td>{{taxe.validite}}</td>
+
+              </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+          </table>
+<div>
+  <pagination-controls  id="liste"
+                        (pageChange)="pageChanged($event)"
+                        (pageBoundsCorrection)="pageChanged($event)"
+                        maxSize="9"
+                        directionLinks="true"
+                        autoHide="true"
+                        responsive="true"
+                        previousLabel="Previous"
+                        nextLabel="Next"
+                        screenReaderPaginationLabel="Pagination"
+                        screenReaderPageLabel="page"
+                        screenReaderCurrentLabel="You're on page">
+  </pagination-controls>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
