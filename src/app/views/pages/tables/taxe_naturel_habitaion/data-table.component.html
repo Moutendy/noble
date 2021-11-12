@@ -26,12 +26,10 @@
                 <th>Code</th>
                 <th>Libelle</th>
                 <th>Date Effet</th>
-                <th>Date de Fin</th>
-                <th>Validite</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let taxe of taxehabitationdto | paginate :{id: 'liste',
+            <!--  <tr *ngFor="let taxe of taxehabitationdto | paginate :{id: 'liste',
                                                                         itemsPerPage: 2,
                                                                         currentPage: p,
                                                                         totalItems: total}">
@@ -41,12 +39,25 @@
                 <td>{{taxe.dateFin|date:'yyyy-mm-dd'}}</td>
                 <td>{{taxe.validite}}</td>
 
-              </tr>
+              </tr>-->
+
+            <!-- la pagination -->
+            <tr *ngFor="let taxe of menu | paginate :{id: 'liste',
+                                                                        itemsPerPage: 2,
+                                                                        currentPage: p,
+                                                                        totalItems: total}">
+              <td>{{taxe.title}}</td>
+              <td>{{taxe.icon}}</td>
+              <td>{{taxe.url}}</td>
+
+
+            </tr>
             </tbody>
             <tfoot>
             </tfoot>
           </table>
 <div>
+  <!--afficher la pagination-->
   <pagination-controls  id="liste"
                         (pageChange)="pageChanged($event)"
                         (pageBoundsCorrection)="pageChanged($event)"

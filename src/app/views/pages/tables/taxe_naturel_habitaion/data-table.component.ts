@@ -13,8 +13,19 @@ import {take} from 'rxjs/operators';
 export class DataTableComponent implements OnInit {
 
   private taxehabitationdto:Array<Taxehabitation>;
+  private menu=[{title:"Home",url:"/menu/home",icon:'share'},
+    {title:"Meteo",url:"/menu/meteo",icon:'snow'},
+    {title:"Gallery",url:"/menu/gallery",icon:'school'},
+    {title:"Locations",url:"/menu/locations",icon:'sync'},
+    {title:"Logout",url:"logout",icon:'log-out'},
+    {title:"Exit",url:"Exit",icon:'power'},
+
+    {title:"Locat",url:"/menu/locations",icon:'sync'},
+    {title:"Logt",url:"logot",icon:'log-out'},
+    {title:"E",url:"Exit",icon:'power'},
+  ]
   pageSize: string | number=3;
-  p: string | number=1;
+  p: number=1;
   total: string | number;
 
   constructor(private taxehabitationserviceService:TaxehabitationserviceService) { }
@@ -31,7 +42,14 @@ export class DataTableComponent implements OnInit {
     this.total=this.taxehabitationdto.length});
   }
 
-  pageChanged($event: number) {
-    
+  //la methode de pagination
+  pageChanged($event: number)
+  {
+    //Go top
+    window.scrollTo(0, 200);
+    //Get nombre of paggination
+    this.p = $event;
   }
+
+
 }
