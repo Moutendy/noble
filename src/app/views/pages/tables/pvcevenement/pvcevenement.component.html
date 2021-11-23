@@ -1,6 +1,6 @@
 <nav class="page-breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a routerLink="."> ajouter Pvc Evenement</a></li>
+    <li class="breadcrumb-item"><a routerLink="."> Afficher Pvc Evenement</a></li>
     <li class="breadcrumb-item active" aria-current="page">Pvc Evenement</li>
   </ol>
 </nav>
@@ -19,13 +19,35 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let c of evenement">
-              <td>{{c.dateEvenement|date:'yyyy-mm-dd'}}</td>
+            <tr *ngFor="let c of evenementdto | paginate :{id: 'liste',
+                                                                        itemsPerPage: 5,
+                                                                        currentPage: p,
+                                                                        totalItems: total}">
+              <td>{{c.dateEvenement|date:'yyyy-MM-dd'}}</td>
               <td>{{c.refRequete}}</td>
               <td>{{c.refTypeEvenement}}</td>
             </tr>
             </tbody>
+            <tfoot>
+            </tfoot>
+
           </table>
+          <div>
+            <!--afficher la pagination-->
+            <pagination-controls  id="liste"
+                                  (pageChange)="pageChanged($event)"
+                                  (pageBoundsCorrection)="pageChanged($event)"
+                                  maxSize="9"
+                                  directionLinks="true"
+                                  autoHide="true"
+                                  responsive="true"
+                                  previousLabel="Previous"
+                                  nextLabel="Next"
+                                  screenReaderPaginationLabel="Pagination"
+                                  screenReaderPageLabel="page"
+                                  screenReaderCurrentLabel="You're on page">
+            </pagination-controls>
+          </div>
         </div>
       </div>
     </div>

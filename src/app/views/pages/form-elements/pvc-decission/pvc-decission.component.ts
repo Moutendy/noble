@@ -2,6 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {WizardComponent as BaseWizardComponent} from 'angular-archwizard/lib/components/wizard.component';
 import {passBoolean} from 'protractor/built/util';
+import {PvcdecisionService} from "./pvcdecision.service";
+import {take} from "rxjs/operators";
+import {Pvcdecision} from "./pvcdecision";
+import {Router} from "@angular/router";
 
 // @ts-ignore
 // @ts-ignore
@@ -12,12 +16,13 @@ import {passBoolean} from 'protractor/built/util';
 })
 export class PvcDecissionComponent implements OnInit {
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: FormBuilder,private pvcdecision:PvcdecisionService,private router:Router) {
   }
+
 
   private static isForm1Submitted: boolean;
   private static isForm2Submitted: boolean;
-
+     private pvcdecisiondto: Pvcdecision;
   private static validationForm1: FormGroup;
   private static validationForm2: FormGroup;
 
@@ -25,8 +30,8 @@ export class PvcDecissionComponent implements OnInit {
   @ViewChild('wizardForm') wizardForm: BaseWizardComponent;
 
   validationForm1 = this.formBuilder.group({
-    date_decision: ['', Validators.required],
-    numero_decision: ['', Validators.required]
+    dateDecision: ['', Validators.required],
+    numeroDecision: ['', Validators.required]
   })
 
 
@@ -49,7 +54,8 @@ export class PvcDecissionComponent implements OnInit {
   }
 
   finishFunction() {
-    alert('Successfully Completed');
+
+    this.router.navigateByUrl("acceuil/tables/pvcdecision");
   }
 
 
@@ -80,6 +86,12 @@ export class PvcDecissionComponent implements OnInit {
   form1Submit() {
     if (this.validationForm1.valid) {
       this.wizardForm.goToNextStep();
+
+
+      this.pvcdecisiondto=this.validationForm1.value;
+      console.log(this.pvcdecisiondto)
+      this.pvcdecision.ajouterdecision(this.pvcdecisiondto).pipe(take(1)).subscribe()
+
     }
     this.isForm1Submitted = true;
   }

@@ -18,9 +18,9 @@
                 <div class="form-group row">
                   <label for="date_decision" class="col-form-label">Date Decision</label>
                   <div class="col-md-12">
-                    <input type="date" class="form-control" id="date_decision" formControlName="date_decision"
-                           [ngClass]="{'is-invalid': isForm1Submitted && form1.date_decision.errors}" placeholder="Annee budgetaire">
-                    <div *ngIf="isForm1Submitted && form1.date_decision.errors?.required" class="invalid-feedback">
+                    <input type="date" class="form-control" id="date_decision" formControlName="dateDecision"
+                           [ngClass]="{'is-invalid': isForm1Submitted && form1.dateDecision.errors}" placeholder="Annee budgetaire">
+                    <div *ngIf="isForm1Submitted && form1.dateDecision.errors?.required" class="invalid-feedback">
                       Required
                     </div>
                   </div>
@@ -28,9 +28,9 @@
                 <div class="form-group row">
                   <label for="numero_decision" class="col-form-label">Numero Decision</label>
                   <div class="col-md-12">
-                    <input type="number" class="form-control" id="numero_decision" formControlName="numero_decision"
-                           [ngClass]="{'is-invalid': isForm1Submitted && form1.numero_decision.errors}" placeholder="date d'effet">
-                    <div *ngIf="isForm1Submitted && form1.numero_decision.errors?.required" class="invalid-feedback">
+                    <input type="text" class="form-control" id="numero_decision" formControlName="numeroDecision"
+                           [ngClass]="{'is-invalid': isForm1Submitted && form1.numeroDecision.errors}" placeholder="numero_decision">
+                    <div *ngIf="isForm1Submitted && form1.numeroDecision.errors?.required" class="invalid-feedback">
                       Required
                     </div>
                   </div>

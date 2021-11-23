@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,8 +11,13 @@ import { AppComponent } from './app.component';
 import { ErrorPageComponent } from './views/pages/error-page/error-page.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
-import {HttpClientModule} from '@angular/common/http';
-
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {SecuritekeycloakService} from "./securitekeycloak.service";
+import {TokenAdapterService} from "./token-adapter.service";
+import {PvcdecisionService} from "./views/pages/form-elements/pvc-decission/pvcdecision.service";
+function KcFactory(kcSecurity : SecuritekeycloakService) {
+  return ()=>kcSecurity.init();
+}
 
 @NgModule({
   declarations: [
@@ -29,6 +34,7 @@ import {HttpClientModule} from '@angular/common/http';
 
   ],
   providers: [
+    PvcdecisionService,
     AuthGuard,
     {
       provide: HIGHLIGHT_OPTIONS, // https://www.npmjs.com/package/ngx-highlightjs
@@ -40,6 +46,17 @@ import {HttpClientModule} from '@angular/common/http';
           scss: () => import('highlight.js/lib/languages/scss'),
         }
       }
+    },SecuritekeycloakService,
+    {
+      provide:APP_INITIALIZER,
+      deps:[SecuritekeycloakService],
+      useFactory:KcFactory,
+      multi:true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenAdapterService,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

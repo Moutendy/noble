@@ -11,7 +11,9 @@ import {take} from 'rxjs/operators';
 })
 export class PvcevenementComponent implements OnInit {
 
-  private evenement:Pvcevenement;
+  private evenementdto:Array<Pvcevenement>;
+  total: string | number;
+  p: number=1;
   constructor(private serviceevement:PvcevenementService) { }
 
   ngOnInit(): void {
@@ -20,7 +22,17 @@ export class PvcevenementComponent implements OnInit {
 
   afficherevenement()
   {
-    return this.serviceevement.afficherEvenement().pipe(take(1)).subscribe(date=>{this.evenement=date
-    console.log(this.evenement)});
+    return this.serviceevement.afficherEvenement().pipe(take(1)).subscribe(date=>{ // @ts-ignore
+      this.evenementdto=date
+    console.log(this.evenementdto)
+      this.total=this.evenementdto.length});
+  }
+
+  pageChanged($event: number) {
+    //Go top
+    window.scrollTo(0, 200);
+    //Get nombre of paggination
+    this.p = $event;
+
   }
 }

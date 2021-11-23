@@ -42,13 +42,13 @@
               </tr>-->
 
             <!-- la pagination -->
-            <tr *ngFor="let taxe of menu | paginate :{id: 'liste',
+            <tr *ngFor="let taxe of taxehabitationdto | paginate :{id: 'liste',
                                                                         itemsPerPage: 2,
                                                                         currentPage: p,
                                                                         totalItems: total}">
-              <td>{{taxe.title}}</td>
-              <td>{{taxe.icon}}</td>
-              <td>{{taxe.url}}</td>
+              <td>{{taxe.code}}</td>
+              <td>{{taxe.libelle}}</td>
+              <td>{{taxe.dateEffet|date:'yyyy-MM-dd'}}</td>
 
 
             </tr>
